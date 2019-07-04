@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Web design and development, Web consultation, Custom web applications development, Content creation and copywriting and more to drive your business growth. This is us." />
+    <meta name="keywords" content="alphatechengine, techengine, digital, digital solution, web application, web application developer Brisbane, website design, website design Brisbane, web design, web design Brisbane, web application, web application development, web designer, website agency, website agency in Australia,
+        website agency in Brisbane, website solution, web solution, affordable website company, affordable web design, affordable website design, best website design company, best web application developer,
+        logo design, logo designer, banner design, banner designer" />
+    <title>@ViewData["Title"] - AlphaTechEngine</title>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+    <link href="~/css/MobileMenu.css" rel="stylesheet" />
+    @RenderSection("stylesheet")
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="w-100">
+        <div class="header">
+            <div class="logoMenu">
+                <div class="menuIcon">
+                    <img class="mobileMenu" src="~/Images/Alpha/menu-icon.png" />
+                    <img class="mobileMenu" src="~/Images/Alpha/close-icon - no circle.png" style="display: none;" />
+                </div>
+                <a asp-area="" asp-controller="Home" asp-action="Home"><img class="logo" src="~/Images/AlphaTechEngine.svg" alt="alphatechengine" /></a>
+                <div class="menu">
+                    <div class="w-100">
+                        <ul>
+                            <li><a asp-area="" asp-controller="Home" asp-action="Home">Home</a></li>
+                            <li><a asp-area="" asp-controller="Home" asp-action="Services">Services</a></li>
+                            <li><a asp-area="" asp-controller="Home" asp-action="Team">Team</a></li>
+                            <li><a asp-area="" asp-controller="Home" asp-action="ContactUs">Contact us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        @RenderSection("banner")
+
+        <div class="mainBody">
+            @RenderBody()
+        </div>
+
+        <div class="footer">
+            <p>
+                Copyright © 2019 AlphaTechEngine. All rights reserved.<br />
+                <span style="font-size: 16px; color: #ff0;">Follow us on:</span> 
+                <a href="https://www.facebook.com/Alphatechengine-320156771940871/" target="_blank" class="icoFacebook social-media" title="Facebook"><i class="fa fa-facebook"></i> </a>
+                <a href="https://www.linkedin.com/company/alphatechengine/?viewAsMember=true" target="_blank" class="icoLinkedin social-media" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+            </p>
+                @*<ul class="social-network social-circle">
+                    <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                </ul>*@
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script>
+        $(window).ready(function () {
+            $('.mobileMenu').click(function () {
+                $('.menuIcon').find('img').toggle('slow');
+                if ($('.menu').css('display') == 'none') {
+                    $('.menu').slideDown('slow');
+                    $('body').css({ overflow: 'hidden' });
+                }
+                else {
+                    $('.menu').slideUp('slow');
+                    $('body').css({ overflow: 'auto' });
+                }
+            });
+        });
+        var position = $(window).scrollTop();// should start at 0
+        $(window).scroll(function () {
+            var scroll = $(window).scrollTop();
+            var windowHeight = $(window).height();
+            if (scroll > position) {
+                $('.header').removeClass('fix');
+            } else {
+
+                if (scroll > 2) {
+                    $('.header').addClass('fix')
+                }
+                else {
+                    $('.header').removeClass('fix');
+                }
+            }
+            position = scroll;
+        });
+    </script>
+
+    @RenderSection("script")
+</body>
+</html>

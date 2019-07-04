@@ -1,0 +1,38 @@
+﻿$total-items: 4;
+
+@media (max-width: 768px) {
+    .menu ul {
+        li {
+            animation: fadeIn 1s linear;
+            animation-fill-mode: both;
+        }
+    }
+
+    // Set delay per List Item
+    @for $i from 1 through $total-items {
+        .menu {
+            ul {
+                li:nth-child(#{$i}) {
+                    animation-delay: .20s * $i;
+                }
+            }
+        }
+    }
+
+    // Keyframe animation
+    @-webkit-keyframes fadeIn {
+        0% {
+            opacity: 0;
+            top: 150px;
+        }
+
+        75% {
+            opacity: 0.5;
+            top: 0px;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+}

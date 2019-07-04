@@ -1,0 +1,163 @@
+﻿
+@{
+    ViewData["Title"] = "Home";
+    Layout = "~/Views/Shared/_template.cshtml";
+}
+@section stylesheet {
+    <link href="~/css/customslider.css" rel="stylesheet" />
+    <link href="~/css/progressbar.css" rel="stylesheet" />
+}
+@section script {
+    <script>
+        $(function () {
+
+            var percent = 0,
+                interval = 25,//interval 10 = 2s
+                $bar = $('.transition-timer-carousel-progress-bar'),
+                $crsl = $('.carousel');
+
+            $('.carousel-indicators li, .carousel-control').click(function () {
+                $bar.css({ width: 0 + '%' });
+            });
+            $crsl.carousel({//initialize
+                interval: false,
+                pause: "false"
+            }).on('slide.bs.carousel', function () {
+                percent = 0;
+            });//This event fires immediately when the bootstrap slide instance method is invoked.
+
+            function progressBarCarousel() {
+                $bar.css({ width: percent + '%' });
+                percent = percent + 0.5;
+                if (percent >= 100) {
+                    percent = 0;
+                    $crsl.carousel('next');
+                }
+            }
+            var barInterval = setInterval(progressBarCarousel, interval);//set interval to progressBarCarousel function
+            //if (!(/Mobi/.test(navigator.userAgent))) {//tests if it isn't mobile
+            //    $crsl.hover(function () {
+            //        clearInterval(barInterval);
+            //    },
+            //            function () {
+            //                barInterval = setInterval(progressBarCarousel, interval);
+            //            }
+            //    );
+            //}
+            if ((/Mobi/.test(navigator.userAgent))) {
+                $('.carousel-indicators').addClass('d-none');
+                $('.carousel-control-prev, .carousel-control-next').css({ display: 'flex' });
+            }
+        });
+    </script>
+
+}
+
+@section banner {
+    <div id="servicesSlider" class="carousel slide" data-ride="carousel">
+
+        @*controller*@
+        <ol class="carousel-indicators customCarousel">
+            <li id="first" data-target="#servicesSlider" data-slide-to="0" class="active">
+                <hr class="transition-timer-carousel-progress-bar" />
+                <div class="preTitle">
+                    <h4>Web Consultation</h4>
+                    @*<p>We can setup an obligation free consultation with our IT gurus who have years of experience</p>*@
+                </div>
+            </li>
+            <li id="second" data-target="#servicesSlider" data-slide-to="1">
+                <hr class="transition-timer-carousel-progress-bar" />
+                <div class="preTitle">
+                    <h4>Website Design and Web Application Development</h4>
+                    @*<p>Our team of experts use cutting edge tools and technologies to design and develop the most stunning websites.</p>*@
+                </div>
+            </li>
+            <li id="third" data-target="#servicesSlider" data-slide-to="2">
+                <hr class="transition-timer-carousel-progress-bar" />
+                <div class="preTitle">
+                    <h4>Content Development and Copywriting</h4>
+                    @*<p>With our IT professionals experienced in creating best contents to engage audience, we guarantee your business growth.</p>*@
+                </div>
+            </li>
+            <li id="fourth" data-target="#servicesSlider" data-slide-to="3">
+                <hr class="transition-timer-carousel-progress-bar" />
+                <div class="preTitle">
+                    <h4>Other services</h4>
+                    @*<p>Logo Designs, beautiful and affordable graphics design, domain name Registration, Web support</p>*@
+                </div>
+            </li>
+        </ol>
+        @*controller ends*@
+
+        <div class="carousel-inner">
+            <div>
+                <div id="firstSlider" class="carousel-item active">
+                    <img class="d-block" src="~/Images/Web consultation-2500x970.png" alt="First slide">
+                    <div class="tintedBackground"></div>
+                    <div class="carousel-caption d-md-block">
+                        <div class="w-50">
+                            <h1>Web Consultation</h1>
+                            <p>We can setup an obligation free consultation with our IT gurus who have years of experience in understanding businesses and providing the best</p>
+                            <div class="linkTo"><a href="/Home/Services#webConsultation">Show more..</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="secondSlider" class="carousel-item">
+                    <img class="d-block" src="~/Images/Responsive design - 2500x970.png" alt="Second slide">
+                    <div class="tintedBackground"></div>
+                    <div class="carousel-caption d-md-block">
+                        <div class="w-50">
+                            <h1>Website Design and Web Application Development</h1>
+                            <p>Our team of experts use cutting edge tools and technologies to design and develop the most stunning websites.</p>
+                            <div class="linkTo"><a href="/Home/Services#webDesignandDevelopment">Show more..</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="thirdSlider" class="carousel-item">
+                    <img class="d-block" src="~/Images/Content development-2500x970.png" alt="Third slide">
+                    <div class="tintedBackground"></div>
+                    <div class="carousel-caption d-md-block">
+                        <div class="w-50">
+                            <h1>Content Development and Copywriting</h1>
+                            <p>With our IT professionals experienced in creating best contents to engage audience, we guarantee your business growth.</p>
+                            <div class="linkTo"><a href="/Home/Services#contentDevelopmentandCopywriting">Show more..</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="fourthSlider" class="carousel-item">
+                    <img class="d-block" src="~/Images/Other-services-2500x970.png" alt="Fourth slide">
+                    <div class="tintedBackground"></div>
+                    <div class="carousel-caption d-md-block">
+                        <div class="w-50">
+                            <h1>Other Services</h1>
+                            <p>We can help you to design your logo, create beautiful and affordable graphics design, domain name registration, web hosting, web support</p>
+                            <div class="linkTo"><a href="/Home/Services#otherServices">Show more..</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#servicesSlider" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#servicesSlider" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+}
+<div id="mission" class="section">
+    <div class="section-content">
+        <h4>Our Mission</h4>
+        <p>Our mission is to simply and clearly understand what your business needs are, tailor the most appropriate strategy, create the best website content and come up with the right design and development until we receive your thumbs up.</p>
+    </div>
+</div>
+<div id="vision" class="section">
+    <div class="section-content">
+        <div class="titleBox">
+            <h4>Our Vision</h4>
+        </div>
+        <p>To provide our customers the best technical solutions at most affordable prices whilst creating state-of-the-art web applications and best website content development guaranteeing complete transparency throughout the process and ensuring exceptional customer satisfaction.</p>
+    </div>
+</div>

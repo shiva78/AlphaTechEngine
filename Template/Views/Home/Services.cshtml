@@ -1,0 +1,156 @@
+﻿
+@{
+    ViewData["Title"] = "Services";
+    Layout = "~/Views/Shared/_template.cshtml";
+}
+@section stylesheet {
+    <link href="~/css/Services.css" rel="stylesheet" />
+}
+@section script {
+    <script src="~/js/jquery.visible.min.js"></script>
+    <script>
+        $(window).ready(function () {
+            if ($(window).width() <= 750) {
+                $('#webDesignImage').insertBefore('#webDesignContent');
+                $('#otherServicesImage').insertBefore('#otherServicesContent');
+            }
+            if ($('#webConsultation').visible(true)) {
+                $('#webConsultation .section-content .row').addClass('inRight');
+            }
+            //for small screen when it is not visible
+            var link = window.location.href;
+            if (link.indexOf("webConsultation") >= 0) {
+                $('#webConsultation .section-content .row').addClass('inRight');
+            }
+            if (link.indexOf("webDesignandDevelopment") >= 0) {
+                $('#webDesignandDevelopment .section-content .row').addClass('inRight');
+            }
+
+            if (link.indexOf("contentDevelopmentandCopywriting") >= 0) {
+                $('#contentDevelopmentandCopywriting .section-content .row').addClass('inRight');
+            }
+            if (link.indexOf("otherServices") >= 0) {
+                $('#otherServices .section-content .row').addClass('inRight');
+            }           
+
+        });
+        $(window).scroll(function () {
+            if ($('#webConsultation').visible(true)) {
+                $('#webConsultation .section-content .row').addClass('inRight');
+            }
+            if ($('#webDesignandDevelopment').visible(true)) {
+                $('#webDesignandDevelopment .section-content .row').addClass('inLeft');
+            }
+            if ($('#contentDevelopmentandCopywriting').visible(true)) {
+                $('#contentDevelopmentandCopywriting .section-content .row').addClass('inRight');
+            }
+            if ($('#otherServices').visible(true)) {
+                $('#otherServices .section-content .row').addClass('inLeft');
+            }
+        });
+    </script>
+}
+
+@section banner {
+    <div class="banner w-100">
+        <img src="~/Images/Services.png" alt="services" />
+        <div class="bannerOverlay"></div>
+        <div class="tagLine">
+            <h2><span>Services:</span></h2>
+            <p><span>With our intellectual team we can always offer the best digital solutions your business may require. Talk to us and we can discuss the ways we could assist you.</span></p>
+        </div>
+    </div>
+}
+<h1 class="hiddenHeader">Our Services</h1>
+<div id="Services">
+    <div id="webConsultation" class="section">
+        <div class="section-content">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="~/Images/Alpha/Web consultation.png" alt="web consultation" />
+                </div>
+                <div class="col-md-6 serviceText">
+                    <h4>Web Consultation</h4>
+                    <p>We can setup an obligation free consultation with our IT gurus who have years of experience in understanding businesses and providing the best solutions by powerful content creation to improve website ranking, SEO optimisation, and use of best keywords to get you on top.</p>
+
+                    <p>To provide the best web consultation, we need to understand your business needs clearly, we discuss on:</p>
+                    <ul>
+                        <li><span>Who you are?</span></li>
+                        <li><span>Who your customers are?</span></li>
+                        <li><span>What your goals are?</span></li>
+                    </ul>
+                    <p>Then we tailor a strategy to suit your needs, only then we advance to next steps.</p>
+                    <a asp-area="" asp-controller="Home" asp-action="ContactUs">BOOK A FREE CONSULTATION</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="webDesignandDevelopment" class="section">
+        <div class="section-content">
+            <div class="row">
+                <div class="col-md-6 serviceText" id="webDesignContent">
+                    <h4>Website Design and Web Application Development</h4>
+                    <p>Our team of experts use cutting edge tools and technologies to design and develop the most stunning websites. Either you need a brand new website or revamp an existing website to an elegant new web design, contact us for:</p>
+                    <ul>
+                        <li><span>Static websites with as many pages as you want</span></li>
+                        <li><span>Dynamic web applications with Content ManagementSystem</span></li>
+                        <li><span>Cheapest Website development</span></li>
+                        <li><span>Interactive and Responsive web designs</span></li>
+                        <li><span>Online stores and E-commerce, WordPress and Woo-commerce websites</span></li>
+                        <li><span>API Integration, Payment gateway integration and much more</span></li>
+                    </ul>
+                    <a asp-area="" asp-controller="Home" asp-action="ContactUs">GET A QUOTE</a>
+                </div>
+                <div class="col-md-6" id="webDesignImage">
+                    <img src="~/Images/Alpha/Responsive design.svg" alt="web consultation" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="contentDevelopmentandCopywriting" class="section">
+        <div class="section-content">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="~/Images/Alpha/Content development.png" alt="web consultation" />
+                </div>
+                <div class="col-md-6 serviceText">
+                    <h4>Content Development and Copywriting</h4>
+                    <p>With our IT professionals experienced in creating best contents to engage audience, we guarantee your business growth. We analyse the keywords from your customers’ perspective and potential clients and make you visible through the best Search Engine Optimisation strategies. We can get your website on higher ranking in Google and other search engines using best keywords and SEO techniques. We drive you more traffic by:</p>
+                    <ul>
+                        <li><span>Search engine focussed Marketing</span></li>
+                        <li><span>Well researched keywords and content</span></li>
+                        <li><span>Inviting Unique visitors to your website</span></li>
+                        <li><span>Providing Better user Experience</span></li>
+                    </ul>
+                    <a asp-area="" asp-controller="Home" asp-action="ContactUs">TALK TO OUR SEO GURU</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="otherServices" class="section">
+        <div class="section-content">
+            <div class="row">
+                <div class="col-md-6 serviceText" id="otherServicesContent">
+                    <h4>Other Services</h4>
+                    <ul>
+                        <li><span>Other services</span></li>
+                        <li><span>Best Logo Designs</span></li>
+                        <li><span>Beautiful and affordable graphics design</span></li>
+                        <li><span>Domain name Registration</span></li>
+                        <li><span>Web hosting</span></li>
+                        <li><span>Business email setup</span></li>
+                        <li><span>Digital marketing ex. Electronic Direct Mail setup</span></li>
+                        <li><span>Social media marketing</span></li>
+                        <li><span>Web support</span></li>
+                    </ul>
+                    <a asp-area="" asp-controller="Home" asp-action="ContactUs">ASK US WHAT YOU NEED</a>
+                </div>
+                <div class="col-md-6" id="otherServicesImage">
+                    <img src="~/Images/Alpha/Other-services.png" alt="web consultation" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

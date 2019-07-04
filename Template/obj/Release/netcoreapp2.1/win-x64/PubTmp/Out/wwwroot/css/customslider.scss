@@ -1,0 +1,118 @@
+﻿$ih: 100vh;
+$iw: 100vw;
+$imgWidth: 2.576883384932921 * 100vh;
+
+.carousel-item {
+    height: $ih;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+    img {
+        position: relative;
+        height: $ih;
+        width: $imgWidth !important;
+        margin-left: calc((#{$iw} - #{$imgWidth}) / 2) !important;
+        /*width: 100vw;*/
+    }
+
+    .tintedBackground {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient( rgba(0,0,0,0.5), rgba(0,0,0,0.5) );
+    }
+}
+
+.customCarousel {
+    margin-bottom: 0 !important;
+    li {
+        box-sizing: content-box;
+        -ms-flex: 0 1 auto;
+        flex: 0 1 auto;
+        /*width: 300px !important;*/
+        width: 25% !important;
+        color: white;
+        height: auto !important;
+        background-color: none !important;
+        cursor: pointer;
+        background-clip: padding-box;
+        border: 1px solid rgba(255,255,255, 0.5) !important;
+        /*border: 0 !important;*/
+        margin: 0 !important;
+        text-indent: 1px;
+        text-align: left;
+        p{
+            margin: 0;
+        }
+    }
+    li.active {
+        background-color: rgba(0,0,0,0.7) !important;
+        hr {
+            display: block !important;
+        }
+        h4 {
+            color: #00b6dd;
+        }
+    }
+    .transition-timer-carousel-progress-bar {
+        background-color: #00b6dd;
+    }
+    .preTitle {
+        padding: 10px;
+    }
+    
+}
+
+.carousel-caption {
+    text-align: left;
+    top: 30%;
+
+    h1 {
+        font-size: 42px !important;
+    }
+
+    p {
+        font-size: 20px;
+    }
+
+    .linkTo {
+        width: 120px;
+        height: 44px;
+        text-align: center;
+        background-color: #00b6dd;
+        color: white;
+        padding: 10px;
+        cursor: pointer;
+        position: relative;
+
+        a {
+            line-height: 44px;
+            color: white;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+        a:hover {
+            color: white !important;
+        }
+    }
+}
+
+@media screen and (max-width: 768px)
+{
+    .carousel-caption h1 {
+        font-size: 28px !important;
+    }
+
+    .carousel-caption p {
+        font-size: 18px;
+    }
+
+    .customCarousel h4 {
+        font-size: 1.2rem;
+    }
+}

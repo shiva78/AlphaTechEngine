@@ -1,0 +1,105 @@
+﻿
+@{
+    ViewData["Title"] = "Team";
+    Layout = "~/Views/Shared/_template.cshtml";
+}
+
+@section stylesheet {
+    <link href="~/css/Services.css" rel="stylesheet" />
+}
+@section script {
+    <script src="~/js/jquery.visible.min.js"></script>
+    <script>
+        $(window).ready(function () {            
+            if ($('#sg').visible(true)) {
+                $('#sg').addClass('inLeft');
+            }
+            if ($('#stm').visible(true)) {
+                $('#stm').addClass('inRight');
+            }
+        });
+        $(window).scroll(function () {
+            if ($('#sg').visible(true)) {
+                $('#sg').addClass('inLeft');
+            }
+            if ($('#stm').visible(true)) {
+                $('#stm').addClass('inRight');
+            }
+            if ($('#ks').visible(true)) {
+                $('#ks').addClass('inLeft');
+            }
+            if ($('#bs').visible(true)) {
+                $('#bs').addClass('inRight');
+            }
+        });
+    </script>
+}
+
+@section banner {
+    <div class="banner w-100">
+        <img src="~/Images/Team - 2500 x 970.png" alt="team" />
+        <div class="bannerOverlay"></div>
+        <div class="tagLine">
+            <h2><span>Our Team:</span></h2>
+            <p><span>Our team is the right mix of creative professionals who enjoy both natural and digital world. Degree in Information technology and years of hard work has brought us this far and we are going beyond.</span></p>
+        </div>
+    </div>
+}
+<h1 class="hiddenHeader">Our Team</h1>
+<div id="Team" class="section-content">
+    <div class="row">
+        <div class="col-md-6" id="sg">
+            <div class="card">
+                <div class="avatar">
+                    <img src="~/Images/Alpha/Avatar-Sushan.png" alt="" />
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Sushan Gurung</h4>
+                    <p class="teamMemberTitle">Marketing Manager/ Graphics team lead</p>
+                    <p class="card-text">Sushan brings smile in the team with her creativity and cheerfulness. She is also a great problem solver who has successfully demonstrated her ability to manage team and communicate effectively with clients.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6" id="stm">
+            <div class="card">
+                <div class="avatar">
+                    <img src="~/Images/Alpha/Avatar-Shiva.png" alt="" />
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Shiva Thapa Magar</h4>
+                    <p class="teamMemberTitle">Senior Full Stack Web Developer/Designer</p>
+                    <p class="card-text">A master of programming languages, filled with positive attitude and the leader of development team, he manages projects and loves to create robust codes. He believes in team-work and is successful in managing a balanced work life.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6" id="ks">
+            <div class="card">
+                <div class="avatar">
+                    <img src="~/Images/Alpha/Avatar-Keshav.png" alt="" />
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Keshav Sanjyal</h4>
+                    <p class="teamMemberTitle">Project Manager/ SEO specialist</p>
+                    <p class="card-text">With degree in IT, engineering and business administration and experience in varied fields of IT hardware and software, he knows exactly where to use and/or avoid jargons. He has set examples by growing our customers’ business and eventually ours.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6" id="bs">
+            <div class="card">
+                <div class="avatar">
+                    <img src="~/Images/Alpha/Avatar-Bijay.png" alt="" />
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Bijay Sigdel</h4>
+                    <p class="teamMemberTitle">Full Stack Developer/Programmer</p>
+                    <p class="card-text">Bijay is a tech savvy guy and our backbone, always ahead on project deadlines and producing great output which fascinates all of us and most importantly our clients.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
