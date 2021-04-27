@@ -7,33 +7,6 @@
 @section stylesheet {
     <link href="~/css/Services.css" rel="stylesheet" />
 }
-@section script {
-    <script src="~/js/jquery.visible.min.js"></script>
-    <script>
-        $(window).ready(function () {            
-            if ($('#sg').visible(true)) {
-                $('#sg').addClass('inLeft');
-            }
-            if ($('#stm').visible(true)) {
-                $('#stm').addClass('inRight');
-            }
-        });
-        $(window).scroll(function () {
-            if ($('#sg').visible(true)) {
-                $('#sg').addClass('inLeft');
-            }
-            if ($('#stm').visible(true)) {
-                $('#stm').addClass('inRight');
-            }
-            if ($('#ks').visible(true)) {
-                $('#ks').addClass('inLeft');
-            }
-            if ($('#bs').visible(true)) {
-                $('#bs').addClass('inRight');
-            }
-        });
-    </script>
-}
 
 @section banner {
     <div class="banner w-100">
@@ -103,3 +76,31 @@
         </div>
     </div>
 </div>
+
+@section script {
+    <script src="~/js/jquery.visible.min.js"></script>
+    <script>
+        $(window).ready(function () {            
+            if ($('#sg').visible(true)) {
+                $('#sg').addClass('inLeft');
+            }
+            if ($('#stm').visible(true)) {
+                $('#stm').addClass('inRight');
+            }
+        });
+        $(window).scroll(function () {
+            if ($('#sg').visible(true)) {
+                $('#sg').addClass('inLeft');
+            }
+            if ($('#stm').visible(true)) {
+                $('#stm').addClass('inRight');
+            }
+            if ($('#ks').visible(true)) {
+                $('#ks').addClass('inLeft');
+            }
+            if ($('#bs').visible(true)) {
+                $('#bs').addClass('inRight');
+            }
+        });
+    </script>
+}
