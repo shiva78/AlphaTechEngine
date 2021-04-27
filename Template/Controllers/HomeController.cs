@@ -29,13 +29,15 @@ namespace Template.Controllers
         [HttpPost]
         public IActionResult ContactUs(Contactus model)
         {
+            // get all information from input
             string fullName = model.fullname;
             string email = model.emailaddress;
             string city = model.city;
             string state = model.state;
             string phone = model.phone;
             string message = model.message;
-
+            
+            // create message template
             MailMessage mail = new MailMessage();
             mail.To.Add("t.shiva88@gmail.com");
             mail.From = new MailAddress("alphatechengine@gmail.com");
@@ -54,11 +56,13 @@ namespace Template.Controllers
             client.EnableSsl = true;
             try
             {
+                // send email and display success message
                 client.Send(mail);
                 ViewData["message"] = "Thank you for contacting us, one of our consultant will contact you shortly";
             }
             catch (Exception e)
             {
+                // display error message when email not sent
                 ViewData["errormessage"] = "Sorry, something went wrong please try agin or email your query to info@alphatechengine.com.au";
             }
 
