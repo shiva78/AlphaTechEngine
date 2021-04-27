@@ -6,50 +6,6 @@
 @section stylesheet {
     <link href="~/css/Services.css" rel="stylesheet" />
 }
-@section script {
-    <script src="~/js/jquery.visible.min.js"></script>
-    <script>
-        $(window).ready(function () {
-            if ($(window).width() <= 750) {
-                $('#webDesignImage').insertBefore('#webDesignContent');
-                $('#otherServicesImage').insertBefore('#otherServicesContent');
-            }
-            if ($('#webConsultation').visible(true)) {
-                $('#webConsultation .section-content .row').addClass('inRight');
-            }
-            //for small screen when it is not visible
-            var link = window.location.href;
-            if (link.indexOf("webConsultation") >= 0) {
-                $('#webConsultation .section-content .row').addClass('inRight');
-            }
-            if (link.indexOf("webDesignandDevelopment") >= 0) {
-                $('#webDesignandDevelopment .section-content .row').addClass('inRight');
-            }
-
-            if (link.indexOf("contentDevelopmentandCopywriting") >= 0) {
-                $('#contentDevelopmentandCopywriting .section-content .row').addClass('inRight');
-            }
-            if (link.indexOf("otherServices") >= 0) {
-                $('#otherServices .section-content .row').addClass('inRight');
-            }           
-
-        });
-        $(window).scroll(function () {
-            if ($('#webConsultation').visible(true)) {
-                $('#webConsultation .section-content .row').addClass('inRight');
-            }
-            if ($('#webDesignandDevelopment').visible(true)) {
-                $('#webDesignandDevelopment .section-content .row').addClass('inLeft');
-            }
-            if ($('#contentDevelopmentandCopywriting').visible(true)) {
-                $('#contentDevelopmentandCopywriting .section-content .row').addClass('inRight');
-            }
-            if ($('#otherServices').visible(true)) {
-                $('#otherServices .section-content .row').addClass('inLeft');
-            }
-        });
-    </script>
-}
 
 @section banner {
     <div class="banner w-100">
@@ -154,3 +110,47 @@
     </div>
 </div>
 
+@section script {
+    <script src="~/js/jquery.visible.min.js"></script>
+    <script>
+        $(window).ready(function () {
+            if ($(window).width() <= 750) {
+                $('#webDesignImage').insertBefore('#webDesignContent');
+                $('#otherServicesImage').insertBefore('#otherServicesContent');
+            }
+            if ($('#webConsultation').visible(true)) {
+                $('#webConsultation .section-content .row').addClass('inRight');
+            }
+            //for small screen when it is not visible
+            var link = window.location.href;
+            if (link.indexOf("webConsultation") >= 0) {
+                $('#webConsultation .section-content .row').addClass('inRight');
+            }
+            if (link.indexOf("webDesignandDevelopment") >= 0) {
+                $('#webDesignandDevelopment .section-content .row').addClass('inRight');
+            }
+
+            if (link.indexOf("contentDevelopmentandCopywriting") >= 0) {
+                $('#contentDevelopmentandCopywriting .section-content .row').addClass('inRight');
+            }
+            if (link.indexOf("otherServices") >= 0) {
+                $('#otherServices .section-content .row').addClass('inRight');
+            }           
+
+        });
+        $(window).scroll(function () {
+            if ($('#webConsultation').visible(true)) {
+                $('#webConsultation .section-content .row').addClass('inRight');
+            }
+            if ($('#webDesignandDevelopment').visible(true)) {
+                $('#webDesignandDevelopment .section-content .row').addClass('inLeft');
+            }
+            if ($('#contentDevelopmentandCopywriting').visible(true)) {
+                $('#contentDevelopmentandCopywriting .section-content .row').addClass('inRight');
+            }
+            if ($('#otherServices').visible(true)) {
+                $('#otherServices .section-content .row').addClass('inLeft');
+            }
+        });
+    </script>
+}
