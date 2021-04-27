@@ -8,20 +8,6 @@
 <link href="~/css/Services.css" rel="stylesheet" />
 }
 
-@section script {
-<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
-<script>
-    $(window).ready(function() {
-        $('form').validate();
-        $("#phone").on("change paste keyup keypress", function (e) {
-            if ($(this).val().length == 10) {
-                return false;                
-            }
-        });
-    });
-</script>
-}
-
 @section banner {
     <div id="contactBanner" class="banner w-100">
         <img src="~/Images/contact-us.png" alt="contact us" />
@@ -96,3 +82,17 @@
         </form>
     </div>
 </div>
+
+@section script {
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script>
+    $(window).ready(function() {
+        $('form').validate();
+        $("#phone").on("change paste keyup keypress", function (e) {
+            if ($(this).val().length == 10) {
+                return false;                
+            }
+        });
+    });
+</script>
+}
